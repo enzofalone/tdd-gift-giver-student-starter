@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const GiftExchange = require("../models/gift-exchange");
-const { BadRequestError } = require("../utils/errors.js");
+const {
+	BadRequestError
+} = require("../utils/errors.js");
 
 router.post("/pairs", async (req, res, next) => {
 	try {
@@ -19,6 +21,22 @@ router.post("/traditional", async (req, res, next) => {
 	try {
 		const tradPairs = GiftExchange.traditional(req.body.names);
 		res.status(200).json(tradPairs);
+	} catch (err) {
+		next(new BadRequestError(err));
+	}
+})
+
+router.get("/quiz", async (req, res, next) => {
+	try {
+		res.status(200).json(GiftExchange.quiz());
+	} catch (err) {
+		next(new BadRequestError(err));
+	}
+})
+
+router.post("/quiz", async (req, res, next) => {
+	try {
+		
 	} catch (err) {
 		next(new BadRequestError(err));
 	}

@@ -1,6 +1,58 @@
-const { BadRequestError } = require("../utils/errors");
+const {
+    BadRequestError
+} = require("../utils/errors");
 
 class GiftExchange {
+    static {
+        //stretch feature array w/ 5 objects
+        this.quizArr = [{
+                question: "question #1",
+                answerChoices: [
+                    "a. first answer choice",
+                    "b. second answer choice",
+                    "c. third answer choice",
+                    "d. fourth answer choice",
+                ],
+            },
+            {
+                question: "question #2",
+                answerChoices: [
+                    "a. first answer choice",
+                    "b. second answer choice",
+                    "c. third answer choice",
+                    "d. fourth answer choice",
+                ],
+            },
+            {
+                question: "question #2",
+                answerChoices: [
+                    "a. first answer choice",
+                    "b. second answer choice",
+                    "c. third answer choice",
+                    "d. fourth answer choice",
+                ],
+            },
+            {
+                question: "question #2",
+                answerChoices: [
+                    "a. first answer choice",
+                    "b. second answer choice",
+                    "c. third answer choice",
+                    "d. fourth answer choice",
+                ],
+            },
+            {
+                question: "question #2",
+                answerChoices: [
+                    "a. first answer choice",
+                    "b. second answer choice",
+                    "c. third answer choice",
+                    "d. fourth answer choice",
+                ],
+            },
+        ]
+    }
+
     static pairs(names) {
         let unpairedNames = names;
         let pairedNames = [];
@@ -23,7 +75,7 @@ class GiftExchange {
             //return paired list
             return pairedNames
 
-        }  else {
+        } else {
             throw new BadRequestError('Pairings can\'t have a uneven number of users') // Express will catch this on its own.
         }
     }
@@ -83,6 +135,23 @@ class GiftExchange {
         } else {
             throw new BadRequestError('Pairings can\'t have a uneven number of users')
         }
+    
+    }
+
+    static quiz() {
+        return this.quizArr;
+    }
+
+    static quizResults(answers) {
+        let letters = {
+            'a': 0,
+            'b': 1,
+            'c': 2,
+            'd': 3
+        }
+        
+        
+
     }
 }
 module.exports = GiftExchange;
