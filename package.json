@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "PORT=3001 nodemon server.js --port 3001",
+    "dev": "nodemon server.js --port 3001",
     "test": "jest -i --verbose tests",
     "test:watch": "npm run test -- --watch"
   },
